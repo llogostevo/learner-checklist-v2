@@ -47,15 +47,14 @@
       <td>Algorithms</td>
       <td>Trees</td>
       <td>
+         <div class="btn-group" data-toggle="buttons">
 {% for judgement in options['judgement'] %}
         {% if judgement != 'Not Covered' %}
-          <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions1" id={{judgement}} value={{judgement}}>
-        <label class="form-check-label" for={{judgement}}>{{judgement}}
-</label>
-      </div>
+        <label class="btn btn-warning btn-sm">
+        <input type="radio" name="options" id="option1">{{judgement}}</label> 
         {% endif %}
       {% endfor %}
+        </div>
       </td>
     </tr>
     <tr>
@@ -63,14 +62,14 @@
       <td>Algorithms</td>
       <td>Graphs</td>
       <td>
+         <div class="btn-group" data-toggle="buttons">
 {% for judgement in options['judgement'] %}
         {% if judgement != 'Not Covered' %}
-          <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions2" id={{judgement}} value={{judgement}}>
-        <label class="form-check-label" for={{judgement}}>{{judgement}}</label>
-      </div>
+        <label class="btn btn-warning btn-sm">
+        <input type="radio" name="options" id="option1">{{judgement}}</label> 
         {% endif %}
       {% endfor %}
+        </div>
       </td>
     </tr>
     <tr>
@@ -79,10 +78,9 @@
       <td>Dijkstras</td>
       <td>
          <div class="btn-group" data-toggle="buttons">
-      <label class="btn btn-primary">
 {% for judgement in options['judgement'] %}
         {% if judgement != 'Not Covered' %}
-        <label class="btn btn-primary">
+        <label class="btn btn-outline-success btn-sm">
         <input type="radio" name="options" id="option1">{{judgement}}</label> 
         {% endif %}
       {% endfor %}
