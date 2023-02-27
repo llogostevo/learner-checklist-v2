@@ -10,6 +10,7 @@ def hello_world():
                          company='PLC', 
                         options =  OPTIONS,
                         courses = COURSES,
+                        teacherCourses = teacherCourses,
                         user = 'Joe Bloggs')
 
 

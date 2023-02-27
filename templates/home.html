@@ -57,17 +57,17 @@
               <a class="nav-link disabled">Exam 2023:</a>
             </li>
             <li><a class="dropdown-item" href="#">Overall</a></li>
-            <li><a class="dropdown-item" href="#">GCSE Computer Science</a></li>
-            <li><a class="dropdown-item" href="#">L2 iMedia</a></li>
-            <li><a class="dropdown-item" href="#">A level Computer Science</a></li>
+            {% for teacherCourse in teacherCourses['2023'] %}
+              <li><a class="dropdown-item" href="#">{{teacherCourse}}</a></li> 
+            {% endfor %}
             <li><hr class="dropdown-divider"></li>
             <li class="nav-item">
               <a class="nav-link disabled">Exam 2024:</a>
             </li>
             <li><a class="dropdown-item" href="#">Overall</a></li>
-            <li><a class="dropdown-item" href="#">GCSE Computer Science</a></li>
-            <li><a class="dropdown-item" href="#">L2 iMedia</a></li>
-            <li><a class="dropdown-item" href="#">CTEC IT</a></li>
+            {% for teacherCourse in teacherCourses['2024'] %}
+              <li><a class="dropdown-item" href="#">{{teacherCourse}}</a></li> 
+            {% endfor %}
           </ul>
         </li>
       </ul>
@@ -110,78 +110,17 @@
     <h1 class="mt-5">Student Courses</h1>
   </div>
 <!--     START COURSE CARDS -->
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="card p-3">
-        <div class="card-body">
-          <h5 class="card-title">Computer science</h5>
-          <p class="card-text">GCSE</p>
-          <a href="#" class="btn btn-primary">Dashboard</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="card p-3">
-        <div class="card-body">
-          <h5 class="card-title">English</h5>
-          <p class="card-text">GCSE</p>
-          <a href="#" class="btn btn-primary">Dashboard</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="card p-3">
-        <div class="card-body">
-          <h5 class="card-title">Computer science</h5>
-          <p class="card-text">GCSE</p>
-          <a href="#" class="btn btn-primary">Dashboard</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="card p-3">
-        <div class="card-body">
-          <h5 class="card-title">English</h5>
-          <p class="card-text">GCSE</p>
-          <a href="#" class="btn btn-primary">Dashboard</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="card p-3">
-        <div class="card-body">
-          <h5 class="card-title">Computer science</h5>
-          <p class="card-text">GCSE</p>
-          <a href="#" class="btn btn-primary">Dashboard</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="card p-3">
-        <div class="card-body">
-          <h5 class="card-title">English</h5>
-          <p class="card-text">GCSE</p>
-          <a href="#" class="btn btn-primary">Dashboard</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="card p-3">
-        <div class="card-body">
-          <h5 class="card-title">Computer science</h5>
-          <p class="card-text">GCSE</p>
-          <a href="#" class="btn btn-primary">Dashboard</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="card p-3">
-        <div class="card-body">
-          <h5 class="card-title">English</h5>
-          <p class="card-text">GCSE</p>
-          <a href="#" class="btn btn-primary">Dashboard</a>
-        </div>
-      </div>
-    </div>
+    {% for course in courses['subjects'] %}
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card p-3">
+                  <div class="card-body">
+                    <h5 class="card-title">New {{course}}</h5>
+                    <p class="card-text">GCSE</p>
+                    <a href="#" class="btn btn-primary">Dashboard</a>
+                  </div>
+                </div>
+              </div> 
+            {% endfor %}
 
 <!--     END COURSE CARDS -->
 </div>
