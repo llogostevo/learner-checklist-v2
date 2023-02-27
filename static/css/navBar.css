@@ -6,6 +6,7 @@
 }
 .header-image {
   background-image: url(/static/img/pexels-pixabay-433333.jpg);
+  background-color: #817E9F;
   background-repeat: no-repeat;
   background-size: 100%;
 	height: 15rem;
