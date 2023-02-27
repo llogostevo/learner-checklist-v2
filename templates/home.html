@@ -39,6 +39,7 @@
       <th scope="col">Topic</th>
       <th scope="col">Sub-Topic</th>
       <th scope="col">Judgement</th>
+      <th scope="col">Last Studied</th>
     </tr>
   </thead>
   <tbody>
@@ -56,6 +57,15 @@
       {% endfor %}
         </div>
       </td>
+      <td>
+        <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-secondary btn-sm">
+        <input type="radio" name="options" id="option1">Not Studied</label>
+<input type="datetime-local" id="meeting-time"
+       name="meeting-time" value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00">
+</div>
+      </td>
     </tr>
     <tr>
       <th scope="row">2</th>
@@ -70,15 +80,14 @@
         {% endif %}
       {% endfor %}
         </div>
-<div class="btn-group" data-toggle="buttons">
+      </td>
+      <td>
+        <div class="btn-group" data-toggle="buttons">
         <label class="btn btn-secondary btn-sm">
         <input type="radio" name="options" id="option1">Not Studied</label>
-
 <input type="datetime-local" id="meeting-time"
        name="meeting-time" value="2018-06-12T19:30"
        min="2018-06-07T00:00" max="2018-06-14T00:00">
-
-
 </div>
       </td>
     </tr>
@@ -95,6 +104,15 @@
         {% endif %}
       {% endfor %}
         </div>
+      </td>
+      <td>
+        <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-secondary btn-sm">
+        <input type="radio" name="options" id="option1">Not Studied</label>
+<input type="datetime-local" id="meeting-time"
+       name="meeting-time" value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00">
+</div>
       </td>
     </tr>
   </tbody>
