@@ -1,17 +1,41 @@
 from flask import Flask, render_template
 from judgements import *
+
 app = Flask(__name__)
 
 user = 'Joe Bloggs'
 
+
 @app.route("/")
-def hello_world():
-  return render_template('home.html', 
-                         company='PLC', 
-                        options =  OPTIONS,
-                        courses = COURSES,
-                        teacherCourses = teacherCourses,
-                        user = 'Joe Bloggs')
+def index():
+  return render_template('home.html',
+                         company='PLC',
+                         options=OPTIONS,
+                         courses=COURSES,
+                         teacherCourses=teacherCourses,
+                         user='Joe Bloggs')
+
+
+@app.route("/student/studentUnitChecklist.html")
+def studentUnitChecklist():
+  return render_template('student/studentUnitChecklist.html',
+                         company='PLC',
+                         options=OPTIONS,
+                         courses=COURSES,
+                         teacherCourses=teacherCourses,
+                         user='Joe Bloggs',
+                         criteria=criteria)
+
+
+@app.route("/teacher/teacherUnitChecklist.html")
+def teacherUnitChecklist():
+  return render_template('/teacher/teacherUnitChecklist.html',
+                         company='PLC',
+                         options=OPTIONS,
+                         courses=COURSES,
+                         teacherCourses=teacherCourses,
+                         user='Joe Bloggs',
+                         criteria=criteria)
 
 
 # this will run the app when run is pressed

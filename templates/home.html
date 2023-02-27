@@ -16,11 +16,11 @@
   </head>  
   
   <body>  
-    
-    
+
+<!-- NAVIGATION: TEMPLATE  -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand nav-title" href="#">
+    <a class="navbar-brand nav-title" href={{url_for('index')}}>
       <img src="/static/img/logoGraph.png" alt="Bootstrap" width="30" height="24" class="d-inline-block align-text-top">
       The Learner Checklist
     </a>
@@ -42,21 +42,21 @@
             <li><hr class="dropdown-divider"></li>
             <!-- dynamically create drop down menu -->
             {% for course in courses['subjects'] %}
-              <li><a class="dropdown-item" href="#">{{course}}</a></li> 
+              <li><a class="dropdown-item" href={{url_for('studentUnitChecklist')}}>{{course}}</a></li> 
             {% endfor %}
           </ul>
         </li>
 <!--         END STUDENT DROPDOWN -->
 <!--         TEACHING DROPDOWNS -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{{url_for('teacherUnitChecklist')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Teaching Dashboards
           </a>
           <ul class="dropdown-menu">
             <li class="nav-item">
               <a class="nav-link disabled">Exam 2023:</a>
             </li>
-            <li><a class="dropdown-item" href="#">Overall</a></li>
+            <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">Overall</a></li>
             {% for teacherCourse in teacherCourses['2023'] %}
               <li><a class="dropdown-item" href="#">{{teacherCourse}}</a></li> 
             {% endfor %}
@@ -64,9 +64,9 @@
             <li class="nav-item">
               <a class="nav-link disabled">Exam 2024:</a>
             </li>
-            <li><a class="dropdown-item" href="#">Overall</a></li>
+            <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">Overall</a></li>
             {% for teacherCourse in teacherCourses['2024'] %}
-              <li><a class="dropdown-item" href="#">{{teacherCourse}}</a></li> 
+              <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">{{teacherCourse}}</a></li> 
             {% endfor %}
           </ul>
         </li>
@@ -116,7 +116,7 @@
                   <div class="card-body">
                     <h5 class="card-title">{{course}}</h5>
                     <p class="card-text">GCSE</p>
-                    <a href="#" class="btn btn-primary">Dashboard</a>
+                    <a href="{{url_for('studentUnitChecklist')}}" class="btn btn-primary">Dashboard</a>
                   </div>
                 </div>
               </div> 

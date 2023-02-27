@@ -58,7 +58,7 @@
             <li class="nav-item">
               <a class="nav-link disabled">Exam 2023:</a>
             </li>
-            <li><a class="dropdown-item" href="#">Overall</a></li>
+            <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">Overall</a></li>
             {% for teacherCourse in teacherCourses['2023'] %}
               <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">{{teacherCourse}}</a></li> 
             {% endfor %}
@@ -68,7 +68,7 @@
             </li>
             <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">Overall</a></li>
             {% for teacherCourse in teacherCourses['2024'] %}
-              <li><a class="dropdown-item" href="#">{{teacherCourse}}</a></li> 
+              <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">{{teacherCourse}}</a></li> 
             {% endfor %}
           </ul>
         </li>
@@ -134,61 +134,9 @@
 <!--     END Overall progress card -->
   </div>
 
-
-
-  <div class="row g-5">
-  <div class="col-12">
-    <h1 class="m-5" id="unit1Heading">Unit 1 Checklist</h1>
-  </div>
-    
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th class="text-center" scope="col">#</th>
-            <th scope="col">Topic</th>
-            <th scope="col">Sub-Topic</th>
-            <th class="text-center" scope="col">Judgement</th>
-            <th class="text-center" scope="col">Last Studied</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-      {% for mainCriteria in criteria %}
-        <tr>
-          <td class="text-center">{{loop.index}}</td>
-          <td>{{mainCriteria}}</td>
-          <td>some subcriteria </td>
-          <td class="text-center"><div class="btn-group text-center" data-toggle="buttons">
-              {% for judgement in options['judgement'] %}
-                  {% if judgement != 'Not Covered' %}
-                    {% if judgement == 'Emerging' %}
-                    <label class="btn btn-danger btn-sm">
-                    <input type="radio" name="{{mainCriteria}}" id="option1">{{judgement}}</label>
-                    {% elif judgement == 'Developing' %}
-                    <label class="btn btn-warning btn-sm">
-                    <input type="radio" name="{{mainCriteria}}" id="option1">{{judgement}}</label>
-                    {% elif judgement == 'Consolidating' %}
-                    <label class="btn btn-success btn-sm">
-                    <input type="radio" name="{{mainCriteria}}" id="option1">{{judgement}}</label>   
-                    {% elif judgement == 'Secure' %}
-                    <label class="btn btn-info btn-sm">
-                    <input type="radio" name="{{mainCriteria}}" id="option1">{{judgement}}</label>
-                    {% endif %}
-                {% endif %}
-              {% endfor %}
-             </div>
-          </td>
-          <td class="text-center"><img src="/static/img/calendar2-check.svg""><p>62 days ago</p></td>
-        </tr>
-      {% endfor %}
-      
-        </tbody>
-      </table>
-  </div>
-
 <div class="row g-5">
   <div class="col-12">
-    <h1 class="m-5" id="unit2Heading">Unit 2 Checklist</h1>
+    <h1 class="m-5" id="unit1Heading">Unit 1 Student Performance</h1>
   </div>
       <table class="table">
         <thead class="thead-dark">
@@ -196,8 +144,36 @@
             <th class="text-center" scope="col">#</th>
             <th class="text-left" scope="col">Topic</th>
             <th class="text-left" scope="col">Sub-Topic</th>
-            <th class="text-center" scope="col">Judgement</th>
-            <th class="text-center" scope="col">Last Studied</th>
+            <th class="text-center" scope="col">BB</th>
+            <th class="text-center" scope="col">LS</th>
+            <th class="text-center" scope="col">SB</th>
+            <th class="text-center" scope="col">AM</th>
+            <th class="text-center" scope="col">AM</th>
+            <th class="text-center" scope="col">BM</th>
+            <th class="text-center" scope="col">SM</th>
+            <th class="text-center" scope="col">JS</th>
+            <th class="text-center" scope="col">SS</th>
+            <th class="text-center" scope="col">RS10</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS10</th>
+            <th class="text-center" scope="col">MM</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS</th>
+            <th class="text-center" scope="col">RS10</th>
           </tr>
         </thead>
         <tbody>
@@ -207,30 +183,38 @@
           <td class="text-center">{{loop.index}}</td>
           <td class="text-left">{{mainCriteria}}</td>
           <td class="text-left">some subcriteria </td>
-          <td class="text-center"><div class="btn-group text-center" data-toggle="buttons">
-              {% for judgement in options['judgement'] %}
-                  {% if judgement != 'Not Covered' %}
-                    {% if judgement == 'Emerging' %}
-                    <label class="btn btn-danger btn-sm">
-                    <input type="radio" name="{{mainCriteria}}" id="option1">{{judgement}}</label>
-                    {% elif judgement == 'Developing' %}
-                    <label class="btn btn-warning btn-sm">
-                    <input type="radio" name="{{mainCriteria}}" id="option1">{{judgement}}</label>
-                    {% elif judgement == 'Consolidating' %}
-                    <label class="btn btn-success btn-sm">
-                    <input type="radio" name="{{mainCriteria}}" id="option1">{{judgement}}</label>   
-                    {% elif judgement == 'Secure' %}
-                    <label class="btn btn-info btn-sm">
-                    <input type="radio" name="{{mainCriteria}}" id="option1">{{judgement}}</label>
-                    {% endif %}
-                {% endif %}
-              {% endfor %}
-             </div>
-          </td>
-          <td class="text-center"><img src="/static/img/calendar2-check.svg""><p>62 days ago</p></td>
+          <td class="text-center" scope="col">BB</td>
+            <td class="text-center bg-success text-white" scope="col">C</td>
+            <td class="text-center bg-warning text-dark" scope="col">D</td>
+            <td class="text-center bg-danger text-white" scope="col">E</td>
+            <td class="text-center bg-info text-white" scope="col">S</td>
+            <td class="text-center bg-success text-white" scope="col">C</td>
+            <td class="text-center bg-warning text-dark" scope="col">D</td>
+            <td class="text-center bg-danger text-white" scope="col">E</td>
+            <td class="text-center bg-info text-white" scope="col">S</td>
+            <td class="text-center bg-success text-white" scope="col">C</td>
+            <td class="text-center bg-warning text-dark" scope="col">D</td>
+            <td class="text-center bg-danger text-white" scope="col">E</td>
+            <td class="text-center bg-info text-white" scope="col">S</td>
+            <td class="text-center bg-success text-white" scope="col">C</td>
+            <td class="text-center bg-warning text-dark" scope="col">D</td>
+            <td class="text-center bg-danger text-white" scope="col">E</td>
+            <td class="text-center bg-info text-white" scope="col">S</td>
+            <td class="text-center bg-success text-white" scope="col">C</td>
+            <td class="text-center bg-warning text-dark" scope="col">D</td>
+            <td class="text-center bg-danger text-white" scope="col">E</td>
+            <td class="text-center bg-info text-white" scope="col">S</td>
+            <td class="text-center bg-success text-white" scope="col">C</td>
+            <td class="text-center bg-warning text-dark" scope="col">D</td>
+            <td class="text-center bg-danger text-white" scope="col">E</td>
+            <td class="text-center bg-info text-white" scope="col">S</td>
+            <td class="text-center bg-success text-white" scope="col">C</td>
+            <td class="text-center bg-warning text-dark" scope="col">D</td>
+            <td class="text-center bg-danger text-white" scope="col">E</td>
+            <td class="text-center bg-info text-white" scope="col">S</td>
+            <td class="text-center bg-info text-white" scope="col">S</td>
         </tr>
       {% endfor %}
-      
         </tbody>
       </table>
 </div>
