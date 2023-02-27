@@ -8,7 +8,8 @@ user = 'Joe Bloggs'
 def hello_world():
   return render_template('home.html', 
                          company='PLC', 
-                        options =  OPTIONS, 
+                        options =  OPTIONS,
+                        courses = COURSES,
                         user = 'Joe Bloggs')
 
 

@@ -1,0 +1,89 @@
+<!-- OLD CONTENT TESTING -->
+<h1>OLD CONTENT TESTING</h1>
+    
+    <h1>Hello {{company}}</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Sub-Topic</th>
+      <th scope="col">Judgement</th>
+      <th scope="col">Last Studied</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Algorithms</td>
+      <td>Trees</td>
+      <td>
+         <div class="btn-group" data-toggle="buttons">
+{% for judgement in options['judgement'] %}
+        {% if judgement != 'Not Covered' %}
+        <label class="btn btn-warning btn-sm">
+        <input type="radio" name="options" id="option1">{{judgement}}</label> 
+        {% endif %}
+      {% endfor %}
+        </div>
+      </td>
+      <td>
+        <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-secondary btn-sm">
+        <input type="radio" name="options" id="option1">Not Studied</label>
+<input type="datetime-local" id="meeting-time"
+       name="meeting-time" value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00">
+</div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Algorithms</td>
+      <td>Graphs</td>
+      <td>
+         <div class="btn-group" data-toggle="buttons">
+{% for judgement in options['judgement'] %}
+        {% if judgement != 'Not Covered' %}
+        <label class="btn btn-warning btn-sm">
+        <input type="radio" name="options" id="option1">{{judgement}}</label> 
+        {% endif %}
+      {% endfor %}
+        </div>
+      </td>
+      <td>
+        <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-secondary btn-sm">
+        <input type="radio" name="options" id="option1">Not Studied</label>
+<input type="datetime-local" id="meeting-time"
+       name="meeting-time" value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00">
+</div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Algorithms</td>
+      <td>Dijkstras</td>
+      <td>
+         <div class="btn-group" data-toggle="buttons">
+{% for judgement in options['judgement'] %}
+        {% if judgement != 'Not Covered' %}
+        <label class="btn btn-outline-success btn-sm">
+        <input type="radio" name="options" id="option1">{{judgement}}</label> 
+        {% endif %}
+      {% endfor %}
+        </div>
+      </td>
+      <td>
+        <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-secondary btn-sm">
+        <input type="radio" name="options" id="option1">Not Studied</label>
+<input type="datetime-local" id="meeting-time"
+       name="meeting-time" value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00">
+</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
