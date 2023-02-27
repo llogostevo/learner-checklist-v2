@@ -1,3 +1,4 @@
+<!-- PAGE HEADING: TEMPLATE  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,8 @@
   <link rel="stylesheet" href="/static/css/navBar.css">
   </head>  
   
-  <body>  
+  <body> 
+<!-- END: PAGE HEADING: TEMPLATE  -->
 
 <!-- NAVIGATION: TEMPLATE  -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,14 +33,14 @@
 <!--       STUDENT DROPDOWN MENU -->
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{{url_for('studentUnitChecklist')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Learning Dashboards
           </a>
           <ul class="dropdown-menu">
             <li class="nav-item">
               <a class="nav-link disabled">Learning Dashboards:</a>
             </li>
-            <li><a class="dropdown-item" href="#">Overall</a></li>
+            <li><a class="dropdown-item" href="{{url_for('studentUnitChecklist')}}">Overall</a></li>
             <li><hr class="dropdown-divider"></li>
             <!-- dynamically create drop down menu -->
             {% for course in courses['subjects'] %}
@@ -56,9 +58,9 @@
             <li class="nav-item">
               <a class="nav-link disabled">Exam 2023:</a>
             </li>
-            <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">Overall</a></li>
+            <li><a class="dropdown-item" href="#">Overall</a></li>
             {% for teacherCourse in teacherCourses['2023'] %}
-              <li><a class="dropdown-item" href="#">{{teacherCourse}}</a></li> 
+              <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">{{teacherCourse}}</a></li> 
             {% endfor %}
             <li><hr class="dropdown-divider"></li>
             <li class="nav-item">
@@ -66,69 +68,76 @@
             </li>
             <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">Overall</a></li>
             {% for teacherCourse in teacherCourses['2024'] %}
-              <li><a class="dropdown-item" href="{{url_for('teacherUnitChecklist')}}">{{teacherCourse}}</a></li> 
+              <li><a class="dropdown-item" href="#">{{teacherCourse}}</a></li> 
             {% endfor %}
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('uxExamples')}}">UX Examples</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<!-- END: NAVIGATION: TEMPLATE  -->
 
-<div class="container px-4 text-center">
-  <div class="row g-5">
+
+
+<div class="container px-4">
+  <div class="row g-5 text-center">
       <div class="col-12">
-    <h1 class="mt-5">Student Overall Dashboard</h1>
+    <h1 class="mt-5">UX EXAMPLES</h1>
   </div>
 
-<!--     Overall Progress Card -->
-    <div class="col-lg-6 col-md-12">
-      <div class="card p-3" style="width: 28rem;">
-        <img src="/static/img/mockups/donutExample.png" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Overall Progress</h5>
-            <p class="card-text">Understanding across all subjects</p>
-        </div>
-      </div>
-    </div>
-<!--     END Overall progress card -->
-<!--     Line chart Study  Card -->
-    <div class="col-lg-6 col-md-12">
-      <div class="card p-3" style="width: 34rem;">
-        <img src="/static/img/mockups/lineExample.png" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Study History</h5>
-            <p class="card-text">Study progress over time</p>
-        </div>
-      </div>
-    </div>
-<!--   End line chart study card -->
-  </div>
-
-  <div class="row g-5">
+<div class="row g-5 table-responsive">
   <div class="col-12">
-    <h1 class="mt-5">Student Courses</h1>
+    <h1 class="m-5 " id="unit2Heading">Unit 2 Checklist</h1>
   </div>
-<!--     START COURSE CARDS -->
-    {% for course in courses['subjects'] %}
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="card p-3">
-                  <div class="card-body">
-                    <h5 class="card-title">{{course}}</h5>
-                    <p class="card-text">GCSE</p>
-                    <a href="{{url_for('studentUnitChecklist')}}" class="btn btn-primary">Dashboard</a>
-                  </div>
-                </div>
-              </div> 
-            {% endfor %}
+{% for mainCriteria in criteria %}
+  <h1>{{mainCriteria}}</h1>
 
-<!--     END COURSE CARDS -->
-</div>
+  <table class="table table-bordered table-hover table-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Topic</th>
+          <th scope="col">Judgement</th>
+          <th scope="col">Last Studied</th>
+        </tr>
+      </thead>
+    <tbody class="table-group-divider">
+    {% for subcriteria in criteria[mainCriteria] %}
+        <tr>
+          <th scope="row align-middle">{{loop.index}}</th>
+          <td class="text-start w-50 align-middle">{{subcriteria}}</td>
+          <td class="text-center w-25 align-middle"><div class="btn-group text-center" data-toggle="buttons">
+              {% for judgement in options['judgement'] %}
+                  {% if judgement != 'Not Covered' %}
+                    {% if judgement == 'Emerging' %}
+                    <label class="btn btn-danger btn-sm">
+                    <input type="radio" name="{{subcriteria}}" id="{{subcriteria}}{{loop.index}}">{{judgement}}</label>
+                    {% elif judgement == 'Developing' %}
+                    <label class="btn btn-warning btn-sm">
+                    <input type="radio" name="{{subcriteria}}" id="{{subcriteria}}{{loop.index}}">{{judgement}}</label>
+                    {% elif judgement == 'Consolidating' %}
+                    <label class="btn btn-success btn-sm">
+                    <input type="radio" name="{{subcriteria}}" id="{{subcriteria}}{{loop.index}}">{{judgement}}</label>   
+                    {% elif judgement == 'Secure' %}
+                    <label class="btn btn-info btn-sm">
+                    <input type="radio" name="{{subcriteria}}" id="{{subcriteria}}{{loop.index}}">{{judgement}}</label>
+                    {% endif %}
+                {% endif %}
+              {% endfor %}
+          </td>
+          <td class="text-center align-middle">+23 days</td>
+        </tr>
+  {% endfor %}
+      </tbody>
+    </table>
+{% endfor %}
+      
 </div>
 
+
+
+    
 <!--     FOOTER -->
       <div class="mt-5 p-4 text-black text-center">
   <p><em>The Learner Checklist &copy;2023</em></p>
@@ -136,4 +145,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
   </body>
-</html>
+</html>    
+
+
+

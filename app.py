@@ -37,7 +37,17 @@ def teacherUnitChecklist():
                          user='Joe Bloggs',
                          criteria=criteria)
 
+@app.route("/UX/uxExamples.html")
+def uxExamples():
+  return render_template('/UX/uxExamples.html',
+                         company='PLC',
+                         options=OPTIONS,
+                         courses=COURSES,
+                         teacherCourses=teacherCourses,
+                         user='Joe Bloggs',
+                         criteria=criteria)
 
+  
 # this will run the app when run is pressed
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
