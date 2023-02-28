@@ -41,8 +41,8 @@
             <li><a class="dropdown-item" href="#">Overall</a></li>
             <li><hr class="dropdown-divider"></li>
             <!-- dynamically create drop down menu -->
-            {% for course in courses['subjects'] %}
-              <li><a class="dropdown-item" href={{url_for('studentUnitChecklist')}}>{{course}}</a></li> 
+            {% for course in courses %}
+              <li><a class="dropdown-item" href={{url_for('studentUnitChecklist')}}>{{course["course_name"]}} {{course["course_board"]}} {{course["course_level"]}}</a></li> 
             {% endfor %}
           </ul>
         </li>
@@ -113,12 +113,12 @@
     <h1 class="mt-5">Student Courses</h1>
   </div>
 <!--     START COURSE CARDS -->
-    {% for course in courses['subjects'] %}
+    {% for course in courses %}
               <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="card p-3">
                   <div class="card-body">
-                    <h5 class="card-title">{{course}}</h5>
-                    <p class="card-text">GCSE</p>
+                    <h5 class="card-title">{{course['course_name']}}</h5>
+                    <p class="card-text">{{course["course_level"]}}</p>
                     <a href="{{url_for('studentUnitChecklist')}}" class="btn btn-primary">Dashboard</a>
                   </div>
                 </div>
