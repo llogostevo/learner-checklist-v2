@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify
 from judgements import *
-from database import load_courses_from_db
+from database import *
 
 app = Flask(__name__)
 
@@ -49,7 +49,14 @@ def uxExamples():
                          user='Joe Bloggs',
                          criteria=criteria)
 
+@app.route("/teacher/<id>")
+def teacherTopics(id):
+  teacherTopics = load_teacherTopics_from_db(id)
 
+  #return jsonify(teacherTopics)
+  return render_template('/teacher/teacherTopics.html',
+                    teacherTopics = teacherTopics)
+  
 # Can be used to test the data coming from the db functions, just put the db function to be assigned to data
 # running the path will display the returned data format to the browser
 @app.route("/api/json.html")
